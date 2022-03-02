@@ -1,7 +1,7 @@
 // on créer un objet : 
-let vaisseau1 = new Sprite("vaisseau1", document.body.clientWidth/2, document.body.clientHeight/2, "red");
-let vaisseau2 = new Sprite("vaisseau1", document.body.clientWidth/3, document.body.clientHeight/2, "blue");
-let vaisseau3 = new Sprite("vaisseau1", document.body.clientWidth/5, document.body.clientHeight/2, "yellow");
+let vaisseau1 = new Sprite("vaisseau1", document.body.clientWidth/2, document.body.clientHeight/2, "red", "150px");
+let vaisseau2 = new Sprite("vaisseau1", document.body.clientWidth/3, document.body.clientHeight/2, "blue", "150px");
+let vaisseau3 = new Sprite("vaisseau1", document.body.clientWidth/5, document.body.clientHeight/2, "yellow", "150px");
 
 // Première étape : créer l'objet visuel Sprite
 
@@ -9,7 +9,7 @@ let vaisseau3 = new Sprite("vaisseau1", document.body.clientWidth/5, document.bo
 // 1) filename => nom du fichier/chemin d'accès
 // 2) left => récupérer et définir sa position par rapport au bord gauche 
 // 3) top => récupérer et définir sa position par rapport au bord haut 
-function Sprite(filename, left, top, bgColor){
+function Sprite(filename, left, top, bgColor, pixel){
 
     // this = anglais => celui-ci
 
@@ -33,6 +33,9 @@ function Sprite(filename, left, top, bgColor){
 
     this._bgColor = bgColor;
     this._node.style.backgroundColor = this._bgColor;
+    this._pixel = pixel;
+    this._node.style.width = this._pixel// ou +"px" si je ne spécifie mes valeurs de taille dans mon objet;
+    
 
     // on définit une propriété (ici LEFT), de l'objet courant (THIS)
     Object.defineProperty(this, "left",{
